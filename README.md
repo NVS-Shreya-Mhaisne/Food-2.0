@@ -4,7 +4,7 @@ A modern, full-stack food delivery web application built with React, Node.js, Ex
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Food-2.0/
@@ -15,7 +15,7 @@ Food-2.0/
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Frontend & Admin**: React.js, Vite, Axios, React Router, CSS3 / Modern UI
 - **Backend**: Node.js, Express.js, MongoDB (Mongoose), JWT, Stripe, Multer, Google Gemini API
@@ -23,7 +23,7 @@ Food-2.0/
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 ```bash
@@ -55,7 +55,7 @@ npm run dev
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 ### Backend (`Backend/.env`)
 - `PORT` - Port number (e.g. 5000)
@@ -67,6 +67,3 @@ npm run dev
 - `ADMIN_URL` - Admin panel origin URL
 
 ---
-
-## 📄 License
-MIT License
