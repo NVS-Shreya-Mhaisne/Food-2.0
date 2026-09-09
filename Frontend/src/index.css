@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Playfair", ui-serif, Georgia, Cambria, serif;
+  --color-primary: #FF6B35;
+  --color-primary-hover: #E55B27;
+  --color-secondary: #FF8A5B;
+  --color-secondary-hover: #E57A4C;
+  --color-bg-warm: #FFF8F5;
+  --color-text-dark: #1E1E1E;
+  --color-success-green: #22C55E;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #FFF8F5;
+  color: #1E1E1E;
+  font-family: 'Outfit', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #211714;
+  color: #f4f1ea;
+}
+
+/* Dark mode forced visibility overrides */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark .text-text-dark,
+.dark .text-\[\#2b1f1d\] {
+  color: #fcfbfa !important;
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Slide up entrance */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Gradient shimmer for brand text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Gentle floating for decorative elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Scale in entrance */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Glow pulse for newsletter input */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(255, 107, 53, 0.15);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Wave motion for footer wave SVG */
+@keyframes waveShift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-wave {
+  animation: waveShift 8s ease-in-out infinite;
+}
+
+/* ===== CUSTOM UNIQUE AESTHETIC UTILITIES ===== */
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.dark .glass-card {
+  background: rgba(43, 31, 29, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Mesh Gradient Backdrop */
+.mesh-bg {
+  background-color: #FFF8F5;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(255, 107, 53, 0.08) 0px, transparent 50%),
+    radial-gradient(at 85% 25%, rgba(255, 138, 91, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 75%, rgba(255, 180, 140, 0.07) 0px, transparent 50%);
+}
+
+.dark .mesh-bg {
+  background-color: #211714;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(255, 107, 53, 0.12) 0px, transparent 50%),
+    radial-gradient(at 85% 25%, rgba(255, 138, 91, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 75%, rgba(255, 180, 140, 0.06) 0px, transparent 50%);
+}
+
+/* Glowing Neon Accent Button */
+.glow-btn-primary {
+  box-shadow: 0 4px 20px -2px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-btn-primary:hover {
+  box-shadow: 0 8px 30px 2px rgba(255, 107, 53, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Hover Card 3D Lift */
+.hover-lift {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 20px 40px -15px rgba(255, 107, 53, 0.15);
+}
+
+/* Modern Gradient Text Clip */
+.text-gradient {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8A5B 50%, #FF4500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 248, 245, 0.8);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(33, 23, 20, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 53, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 53, 0.6);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;           /* Chrome, Safari, Opera */
+  }
+}
+
+/* Leaflet Custom Marker & Tile Styling */
+.custom-leaflet-pin {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-container {
+  font-family: inherit !important;
+  border-radius: 1.5rem 0 0 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .leaflet-container {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+}
