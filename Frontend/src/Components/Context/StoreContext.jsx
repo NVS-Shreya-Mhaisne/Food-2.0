@@ -130,7 +130,7 @@ const StoreContextProvider = (props) => {
     }
   }, [cartItems]);
 
-  const url = import.meta.env.VITE_BACKEND_URL;
+  const url = (import.meta.env.VITE_BACKEND_URL || "https://cravely-backend.vercel.app").replace(/\/+$/, "");
 
   const toggleLikeFood = async (foodId) => {
     setLikedFoods((prev) => {

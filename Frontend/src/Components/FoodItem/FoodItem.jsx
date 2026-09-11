@@ -10,8 +10,8 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
   const { cartItems, addToCart, removeFromCart, url, likedFoods, toggleLikeFood } = useContext(StoreContext);
   const [showModal, setShowModal] = useState(false);
 
-  const isLiked = likedFoods?.[id] || false;
-  const imageSrc = image.startsWith('http') ? image : `${url}/images/${image}`;
+  const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80';
+  const imageSrc = image ? (image.startsWith('http') ? image : `${url}/images/${image}`) : fallbackImage;
 
   return (
     <>
@@ -31,6 +31,11 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
             className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' 
             src={imageSrc} 
             alt={name} 
+            onError={(e) => {
+              if (e.currentTarget.src !== fallbackImage) {
+                e.currentTarget.src = fallbackImage;
+              }
+            }}
           />
 
           {/* Heart Like Button */}

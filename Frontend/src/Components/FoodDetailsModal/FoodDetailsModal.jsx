@@ -59,8 +59,11 @@ const FoodDetailsModal = ({ item, isOpen, onClose }) => {
                     {/* Top Image Banner */}
                     <div className="relative h-56 sm:h-64 w-full bg-gradient-to-b from-black/40 to-transparent flex-shrink-0">
                         <img
-                            src={item.image}
+                            src={item.image ? (item.image.startsWith('http') ? item.image : `${url}/images/${item.image}`) : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=80'}
                             alt={item.name}
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=80';
+                            }}
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
