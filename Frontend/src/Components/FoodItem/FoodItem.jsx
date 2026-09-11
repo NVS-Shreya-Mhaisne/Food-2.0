@@ -10,6 +10,7 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
   const { cartItems, addToCart, removeFromCart, url, likedFoods, toggleLikeFood } = useContext(StoreContext);
   const [showModal, setShowModal] = useState(false);
 
+  const isLiked = likedFoods?.[id] || false;
   const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80';
   const imageSrc = image ? (image.startsWith('http') ? image : `${url}/images/${image}`) : fallbackImage;
 

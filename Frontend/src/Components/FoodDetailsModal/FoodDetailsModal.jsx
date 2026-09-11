@@ -4,7 +4,7 @@ import { X, Star, Heart, Plus, Minus, ShoppingBag, Flame, Sparkles, Check, Send,
 import { StoreContext } from '../Context/StoreContext';
 
 const FoodDetailsModal = ({ item, isOpen, onClose }) => {
-    const { cartItems, addToCart, removeFromCart, likedFoods, toggleLikeFood } = useContext(StoreContext);
+    const { cartItems, addToCart, removeFromCart, likedFoods, toggleLikeFood, url } = useContext(StoreContext);
     const [selectedTab, setSelectedTab] = useState('overview'); // 'overview' | 'nutrition' | 'reviews'
     const [userRating, setUserRating] = useState(5);
     const [userReviewText, setUserReviewText] = useState('');
